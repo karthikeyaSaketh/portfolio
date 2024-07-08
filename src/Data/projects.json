@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Bharat Teck League",
+    "imageSrc": "projects/project1.png",
+    "description": "Developed and maintained a website regarding the information and registrations for the competition",
+    "skills": ["React","TailwindCss","Express","Node"],
+    "demo": "https://github.com/karthikeyaSaketh/bharattech"
+  },
+  {
+    "title": "Vrikshayan",
+    "imageSrc": "projects/project2.png",
+    "description": "Developed an efficient billing system for organizations which includes statistical analysis",
+    "skills": ["React","TailwindCss","Express","Node","MongoDB"],
+    "demo": "https://github.com/Pavan-Bhumpalli/Vrikshayan-billing"
+  },
+  {
+    "title": "Portfolio",
+    "imageSrc": "projects/project.png",
+    "description": "A website built to exhibit my skills and experience",
+    "skills": ["React", "TailwindCss"],
+    "demo": "#home"
+  }
+]

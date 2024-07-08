@@ -1,0 +1,74 @@
+@import "../../vars.css";
+
+.container {
+  color: var(--color-text);
+  margin-top: 120px;
+  background-color: var(--color-secondary);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 58px 10%;
+  gap: 10px;
+  width: 100%; /* Ensure container spans the full width */
+}
+
+.text {
+  flex: 1; /* Take remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center align text vertically */
+}
+
+.text h2 {
+  font-size: 50px; /* Adjusted font size for better readability */
+  font-weight: 700;
+  letter-spacing: 2px; /* Reduced letter spacing for better readability */
+  margin-bottom: 20px; /* Add some space below the heading */
+}
+
+.text p {
+  font-size: 30px; /* Adjusted font size for paragraphs */
+  font-weight: 400;
+  letter-spacing: 1px; /* Reduced letter spacing for better readability */
+  line-height: 1.5; /* Improved line height for better paragraph spacing */
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align links to the left */
+  list-style: none;
+  gap: 20px; /* Increased gap between links */
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Adjusted gap between link items */
+}
+
+.link a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 24px; /* Adjusted font size for links */
+  font-weight: 400;
+  letter-spacing: 1px; /* Reduced letter spacing for links */
+}
+
+@media screen and (max-width: 830px) {
+  .container {
+    flex-direction: column;
+    align-items: center; /* Center items vertically on smaller screens */
+    padding: 40px 5%; /* Adjusted padding for smaller screens */
+    gap: 20px; /* Adjusted gap between sections */
+  }
+
+  .text {
+    text-align: center; /* Center align text on smaller screens */
+    margin-bottom: 20px; /* Add some space below the text section */
+  }
+
+  .links {
+    align-items: center; /* Center align links on smaller screens */
+  }
+}

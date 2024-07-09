@@ -1,12 +1,10 @@
-@import "../../vars.css";
-
 .container {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding : 20px 0 36px 0;
-  margin-top: 49px;
+  padding: 10px 0 36px 0;
+  margin-top: 40px;
   z-index: 1;
   margin-left: 10%;
   margin-right: 10%;
@@ -32,12 +30,18 @@
   );
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.8s ease;
 }
 
 .description {
   font-size: 30px;
   font-family: var(--font-roboto);
   margin-bottom: 52px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.8s ease;
 }
 
 .contactBtn {
@@ -49,12 +53,14 @@
   font-weight: 600;
   padding: 17px 26px;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.8s ease;
 }
 
 .heroImg {
   width: 40%;
   z-index: 1;
-
   animation-name: floating;
   animation-duration: 3s;
   animation-iteration-count: infinite;
@@ -78,7 +84,6 @@
   width: 50vw;
   height: 50vw;
   min-width: 350px;
-  min-width: 350px;
   top: -128px;
   left: -10vw;
   border-radius: 764px;
@@ -92,7 +97,6 @@
   width: 70vw;
   height: 50vw;
   min-width: 350px;
-  min-width: 250px;
   top: 246px;
   right: -25vw;
   border-radius: 764px;
@@ -101,15 +105,38 @@
   z-index: 0;
 }
 
+/* Animation classes */
+.fadeIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fadeOut {
+  opacity: 0;
+  transform: translateY(200px);
+}
+
 @media screen and (max-width: 830px) {
   .container {
-    flex-direction: column-reverse;
-  }
-
-  .content {
+    flex-direction: column-reverse; /* Reverse flex direction on smaller screens */
     align-items: center;
   }
-  .heroImg{
-    width : 80%;
+
+  .heroImg {
+    width: 80%; /* Adjust image width for smaller screens */
+  }
+
+  .title,
+  .description,
+  .contactBtn {
+    transform: translateY(0); /* Ensure text elements are not translated on smaller screens */
+  }
+  .fadeIn {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .fadeOut {
+    opacity: 0;
+    transform: translateY(80px);
   }
 }

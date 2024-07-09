@@ -9,6 +9,8 @@
   z-index: 1;
   margin-left: 10%;
   margin-right: 10%;
+  opacity: 0; /* Initially hide the container */
+  transition: opacity 1s ease-in-out;
 }
 
 .title {
@@ -25,21 +27,24 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: space-around;
+  gap: 24px;
 }
 
 .aboutImage {
   width: 35%;
   border-radius: 15px;
-  margin-right: 20px;
+  opacity: 0; /* Initially hide the image */
+  transition: opacity 0.5s ease-in-out, transform 1s ease-in-out;
+  transform: translateX(-100%); /* Start offscreen left */
 }
 
 .description {
   flex: 1;
   color: var(--color-text); /* Color defined in vars.css */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  opacity: 0; /* Initially hide the description */
+  transition: opacity 0.5s ease-in-out, transform 1s ease-in-out;
+  transform: translateX(-100%); /* Start offscreen left */
 }
 
 .subTitle {
@@ -59,10 +64,16 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  opacity: 0; /* Initially hide the education list */
+  transition: opacity 0.5s ease-in-out, transform 1s ease-in-out;
+  transform: translateX(100%); /* Start offscreen right */
 }
 
 .educationItem {
   margin-bottom: 20px;
+  opacity: 0; /* Initially hide each education item */
+  transition: opacity 0.5s ease-in-out, transform 1s ease-in-out;
+  transform: translateX(100%); /* Start offscreen right */
 }
 
 .degree {
@@ -93,4 +104,59 @@
   .description {
     margin-top: 20px;
   }
+
+  .educationList {
+    opacity: 1; /* Ensure education list is visible on smaller screens */
+    transform: translateX(0); /* Ensure education list is positioned correctly on smaller screens */
+  }
+
+  .educationItem {
+    opacity: 1; /* Ensure each education item is visible on smaller screens */
+    transform: translateX(0); /* Ensure each education item is positioned correctly on smaller screens */
+  }
+}
+
+/* Fade-in animations */
+.fadeIn {
+  opacity: 1;
+}
+
+.visible .aboutImage {
+  opacity: 1;
+  transform: translateX(0); /* Move in from left */
+}
+
+.visible .description {
+  opacity: 1;
+  transform: translateX(0); /* Move in from left */
+}
+
+.visible .educationList {
+  opacity: 1;
+  transform: translateX(0); /* Move in from right */
+}
+
+.visible .educationItem {
+  opacity: 1;
+  transform: translateX(0); /* Move in from right */
+}
+
+.leave .aboutImage {
+  opacity: 0;
+  transform: translateX(-100%); /* Move out to the left */
+}
+
+.leave .description {
+  opacity: 0;
+  transform: translateX(-100%); /* Move out to the left */
+}
+
+.leave .educationList {
+  opacity: 0;
+  transform: translateX(100%); /* Move out to the right */
+}
+
+.leave .educationItem {
+  opacity: 0;
+  transform: translateX(100%); /* Move out to the right */
 }

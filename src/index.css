@@ -1,3 +1,7 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 * {
     box-sizing : border-box;
     margin : 0;
@@ -5,6 +9,5 @@
     font-family : "Outfit",Arial,Helvetica,sans-serif;
 }
 
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+
+

@@ -1,14 +1,45 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./About.module.css";
 import { getImageUrl } from "../../utils";
 
 export const About = () => {
+  const aboutRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.visible);
+            entry.target.classList.remove(styles.leave); // Remove leave class
+          } else {
+            entry.target.classList.remove(styles.visible);
+            entry.target.classList.add(styles.leave); // Add leave class
+          }
+        });
+      },
+      {
+        threshold: 0.7, // Adjust as needed
+      }
+    );
+
+    if (aboutRef.current) {
+      observer.observe(aboutRef.current);
+    }
+
+    return () => {
+      if (aboutRef.current) {
+        observer.unobserve(aboutRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className={styles.container} id="about">
+    <section ref={aboutRef} className={`${styles.container} ${styles.fadeIn}`} id="about">
       <h2 className={styles.title}>About</h2>
       <div className={styles.content}>
         <img
-          src={getImageUrl("about/aboutImage.png")}
+          src={getImageUrl("about/aboutimg.png")}
           alt="Me sitting with a laptop"
           className={styles.aboutImage}
         />

@@ -1,13 +1,20 @@
+
 @import "../../vars.css";
 
+/* Navbar styles */
 .navbar {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 61px;
+  padding-top: 40px;
   z-index: 2;
   margin: 0 10%;
+}
+.navImg{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }
 
 .title {
@@ -17,9 +24,9 @@
   color: var(--color-text);
 }
 
-
 .menuBtn {
   display: none;
+  transition: transform 0.6s ease-in-out;
 }
 
 .menu {
@@ -31,11 +38,30 @@
   gap: 47px;
   list-style: none;
 }
+.menuItems li {
+  opacity: 0;
+}
 
 .menuItems a {
   font-size: 25px;
   color: var(--color-text);
   text-decoration: none;
+  transition: color 0.6s ease-in-out;
+}
+
+.menuItems a:hover {
+  color: var(--color-primary);
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: 830px) {
@@ -52,31 +78,55 @@
     align-items: flex-end;
     gap: 11px;
     z-index: 3;
+    transition: transform 0.3s ease-in-out;
   }
 
   .menuBtn {
     display: block;
     cursor: pointer;
   }
-
-  .menuItems {
+  .menuItems{
     display: none;
+  }
+  .menuOpen {
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 13px;
     border-radius: 10px;
     background: rgb(25, 55, 109);
-    background: linear-gradient(
-      0deg,
-      rgba(25, 55, 109, 0.2) 0%,
-      rgba(25, 55, 109, 1) 100%
-    );
+    background: linear-gradient(0deg, rgba(25, 55, 109, 0.2) 0%, rgba(25, 55, 109, 1) 100%);
     padding: 24px 33px;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+    opacity: 1; /* Ensure menu items are visible */
+    max-height: none; 
+    
   }
 
-  .menuOpen {
+  .menuOpen{
+    opacity: 1;
+    max-height: 500px; /* Adjust as needed */
+    transition-delay: 0.3s;
+  }
+  .menuOpen li {
+    opacity: 0;
+  }
+  .menuOpen li {
+    animation: slideIn 1.2s forwards;
+    animation-delay: calc(0.3s * var(--index));
+  }
+}
+
+@media screen and (min-width: 831px) {
+  .menuItems {
     display: flex;
-    z-index: 1;
+    gap: 47px;
+    list-style: none;
+    opacity: 1;
+  }
+
+  .menuItems li {
+    animation: slideIn 1.2s forwards;
+    animation-delay: calc(0.3s * var(--index));
   }
 }
